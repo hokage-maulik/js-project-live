@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-card h2 {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .product-card button {
+            background-color: #252424;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* .product-card button:hover {
+            background-color: #f3eae9;
+        } */
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+    <div class="product-container">
+
+    </div>
+
+    <script>
+        var arr = [
+            {
+                img: "https://m.media-amazon.com/images/I/71TtkiOaU7L._AC_UL480_FMwebp_QL65_.jpg",
+                name: "Blue Heaven Festive MakeUp Kit For Women, Medium Tone Combo, Pack of 8,",
+                price: "499"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/61b2tDBxhlL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "Maybelline New York Colossal Kajal, Intense Colour, Waterproof, Long lasting",
+                price: "115"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/61VJwqJD2oL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "Insight Cosmetics Pro Concealer Palette Waterproof Concealer With Full Coverage",
+                price: "184"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/51jD170ZkGL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "Maybelline New York Matte Lipstick, Intense Colour, Moisturised Lips, Color",
+                price: "300"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/41gfpqs4D6L._AC_UL480_FMwebp_QL65_.jpg",
+                name: "Maybelline New York Liquid Foundation, Matte & Poreless, Full Coverage Blendable",
+                price: "200"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/51IgR2yRK2L._AC_UL480_FMwebp_QL65_.jpg",
+                name: "LAKMÉ 9 To 5 Cc Cream Mini|| 01-Beige|| Light Face Makeup With Natural Coverage For All",
+                price: "100"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/618YG4-V3ZL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "MAYBELLINE fit me pressed matte oily skin",
+                price: "175"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/51RUdXI7SrL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "SUGAR Cosmetics Tipsy Lip Balm For Dry & Chapped Lips With Vitamin E, Shea Butter",
+                price: "180"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/51ZtF7SAYqL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "Swiss Beauty Natural Makeup Fixer | Natural Dewy Finish | With Vitamin E and Aloe Vera |",
+                price: "250"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/61vc8xowYUL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "Blue Heaven Matte Love Mini Lipsticks pack of 10 | Long Lasting, Hydrating & Moisturizing Mini Roll on Lipsticks for Women | Soft-Matte Finish | 13g",
+                price: "300"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/51Y2UGLW+bL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "Maybelline New York Mascara, Curls Lashes, Highly Pigmented Colour, Long-",
+                price: "260"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/71vGYvkfgOL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "RENEE Very Matte - Pack of 4 Matte Lipsticks | Intense Color Pay Off, Full Coverage Long",
+                price: "500"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/41yTVMm1DoL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "LAKMÉ Absolute Skin Natural Mousse Foundation, Matte Finish, Full Coverage,",
+                price: "800"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/61zetIRiIdL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "Just Herbs Makeup Kit for Women with Kohl Kajal, 3 in 1 Primer, Liquid Lipstick, Serum",
+                price: "720"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/71eKO+SNzkL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "PETRICE Toiletry Bag for Women Makeup Pouch Waterproof Shower Wash Bag",
+                price: "400"
+            },
+            {
+                img: "https://m.media-amazon.com/images/I/418xNtmWDoL._AC_UL480_FMwebp_QL65_.jpg",
+                name: "Lakme Peach Milk Ceramide Moisturizer with SPF 24 & Hyaluronic for Intense",
+                price: "200"
+            }
+        ];
+
+        function addtocart(el) {
+            var product = JSON.parse(localStorage.getItem("info")) || [];
+            product.push(el);
+            localStorage.setItem("info", JSON.stringify(product));
+            alert("Product added to cart");
+            location.href="cart.html"
+        }
+
+        arr.forEach((el) => {
+            var div = document.createElement("div");
+            div.classList.add("product-card");
+
+            var img = document.createElement("img");
+            img.src = el.img;
+
+            var name = document.createElement("h2");
+            name.innerHTML = el.name;
+
+            var price = document.createElement("p");
+            price.innerHTML = "₹ " + el.price;
+
+            var button = document.createElement("button");
+            button.innerHTML = "ADD TO CART";
+
+            button.addEventListener("click", function () {
+                addtocart(el);
+            });
+
+            div.append(img, name, price, button);
+            document.querySelector(".product-container").append(div);
+        });
+    </script>
+</body>
+</html>

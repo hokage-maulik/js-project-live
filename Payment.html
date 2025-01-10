@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            font-size: 2.5em;
+            margin-top: 50px;
+        }
+
+        h3 {
+            color: #666;
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], input[type="email"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .form-container {
+                padding: 15px;
+                width: 90%;
+            }
+
+            input[type="submit"] {
+                font-size: 1em;
+                padding: 12px;
+            }
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="main">
+        <h1>Your Order is Confirmed</h1>
+        <h3>Pay Here</h3>
+
+        <div class="form-container">
+            <form method="post" onsubmit="return xyz()">
+                <input type="text" placeholder="Enter your name" id="name" name="name"><br><br>
+                <input type="email" placeholder="Enter your email" id="email" name="email"><br><br>
+                <input type="number" placeholder="Card Number" id="card" name="card-Detail"><br><br>
+                <input type="number" placeholder="CVV Number" id="cev" name="cev"><br><br>
+                <input type="checkbox" name="chk" value="payment" id="payment"> Your payment is done <br><br>
+                <input type="submit" value="Submit" name="submit"><br><br>
+            </form>
+        </div>
+
+        <p>Thanks for visiting us</p>
+    </div>
+
+    <script>
+        function xyz() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var card = document.getElementById("card").value;
+            var cvv = document.getElementById("cev").value;
+
+            if (name == "") {
+                alert("Name must be filled");
+                document.getElementById("name").focus();
+                return false;
+            }
+
+            if (email == "") {
+                alert("Email must be filled");
+                document.getElementById("email").focus();
+                return false;
+            }
+
+            if (card == "") {
+                alert("Please enter card number");
+                document.getElementById("card").focus();
+                return false;
+            }
+
+            if (cvv == "" || cvv.length != 3) {
+                alert("Please enter CVV");
+                document.getElementById("cev").focus();
+                return false;
+            }
+
+            alert("Payment is Done");
+            location.href = "Header.html";
+            return true;
+        }
+    </script>
+
+</body>
+</html>
